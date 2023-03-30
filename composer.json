@@ -22,6 +22,7 @@
     "minimum-stability": "dev",
     "require": {
         "vlucas/phpdotenv": "^5.5@dev",
+        "twig/twig": "^3.5.1",
         "ext-mysqli": "*"
     }
 }
