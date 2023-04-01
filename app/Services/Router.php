@@ -1,8 +1,8 @@
 <?php
 
-namespace App\Core;
+namespace App\Services;
 
-class Route{
+class Router{
     // GET POST PUT PATCH DELETE methods
     public static function get($route, $path_to_include){
         //return 1;

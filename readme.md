@@ -4,7 +4,10 @@
 
 ### Usage
 ```shell
-composer update
+composer install
+```
+```shell
+cp .env.example .env
 ```
 
 ### Configure
