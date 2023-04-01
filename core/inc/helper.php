@@ -1,6 +1,6 @@
 <?php
 
-use App\Core\Database;
+use App\Services\DB as Database;
 
 if(!function_exists('env')){
     function env($param, $default = ""):string{
@@ -57,7 +57,7 @@ if(!function_exists('db')){
     function db($query): array
     {
         // Collect config from config folder
-        $config = config('database');
+        /*$config = config('database');
 
         // Core Functions
         //require_once __DIR__ . '/../../src/Database.php';
@@ -66,9 +66,9 @@ if(!function_exists('db')){
             $config['DB_USER'],
             $config['DB_PASS'],
             $config['DB_NAME']
-        );
+        );*/
 
-        return $db->query($query)->fetchAll();
+        return $GLOBALS['db']->query($query)->fetchAll();
     }
 }
 

@@ -1,6 +1,6 @@
 <?php
 
-use App\Core\Route;
+use App\Services\Router as Route;
 
 // Default folder prefix
 $folder = 'views/frontend';

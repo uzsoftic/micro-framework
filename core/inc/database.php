@@ -1,10 +1,7 @@
 <?php
 
-namespace App\Core;
 
-use mysqli;
-
-class Database
+class database
 {
 
     protected $connection;
@@ -17,7 +14,7 @@ class Database
         $dbhost = 'localhost',
         $dbuser = 'root',
         $dbpass = '',
-        $dbname = 'laravel',
+        $dbname = 'db',
         $charset = 'utf8'
     )
     {

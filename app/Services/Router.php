@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Service;
+namespace App\Services;
 
 class Router{
     // GET POST PUT PATCH DELETE methods
