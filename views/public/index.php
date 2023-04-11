@@ -7,6 +7,8 @@ foreach ($users as $key => $user){
 ?>
 
 
+
+
 <!doctype html>
 <html lang="en">
 <head>
