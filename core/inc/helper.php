@@ -1,6 +1,7 @@
 <?php
 
 use App\Services\DB as Database;
+use App\Services\Router;
 
 if(!function_exists('env')){
     function env($param, $default = ""):string{
@@ -84,3 +85,8 @@ if(!function_exists('view')){
     }
 }
 
+if(!function_exists('csrf')){
+    function csrf(){
+        Router::set_csrf();
+    }
+}

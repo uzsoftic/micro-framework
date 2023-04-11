@@ -32,7 +32,7 @@ try {
     //(new Health())->check_database_connection();
 
     //dd(root_dir());
-    view(1);
+    //view(1);
 
     // Router Controller
     require_once __DIR__ . '/routes/web.php';

@@ -22,10 +22,10 @@ class Router{
     }
 
     // ANY route
-    public static function any($route, $path_to_include){ self::route($route, $path_to_include); }
+    public static function any($route, $controller, $path_to_include){ self::route($route, $controller, $path_to_include); }
 
     // ROUTE function
-    private static function route($route, $path_to_include){
+    private static function route($route, $controller, $path_to_include){
         $callback = $path_to_include;
         if( !is_callable($callback) ){
             if(!strpos($path_to_include, '.php')){
@@ -43,6 +43,14 @@ class Router{
         $request_url_parts = explode('/', $request_url);
         array_shift($route_parts);
         array_shift($request_url_parts);
+
+        if(is_array($controller)){
+            (new $controller[0])->{$controller[1]}();
+            //$controller = call_user_func(array($controller[0], $controller[1]));
+            exit();
+        }
+        //dd($buildClass);
+
         if( $route_parts[0] == '' && count($request_url_parts) == 0 ){
             // Callback function
             if( is_callable($callback) ){
@@ -70,7 +78,18 @@ class Router{
             call_user_func_array($callback, $parameters);
             exit();
         }
-        include_once __DIR__."/../$path_to_include";
+
+        
+
+        //include_once __DIR__."/../$path_to_include";
+        exit();
+    }
+
+    private static function routes($route, $controller, $name){
+        if(is_array($controller)){
+            $controller = (new $controller['class'])->controller['function']();
+        }
+        dd($controller);
         exit();
     }
 
