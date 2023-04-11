@@ -56,19 +56,31 @@ if(!function_exists('config')){
 if(!function_exists('db')){
     function db($query): array
     {
-        // Collect config from config folder
-        /*$config = config('database');
-
-        // Core Functions
-        //require_once __DIR__ . '/../../src/Database.php';
-        $db = new Database(
-            $config['DB_HOST'],
-            $config['DB_USER'],
-            $config['DB_PASS'],
-            $config['DB_NAME']
-        );*/
-
         return $GLOBALS['db']->query($query)->fetchAll();
+    }
+}
+
+if(!function_exists('root_dir')){
+    function root_dir(){
+        return (string) realpath(dirname(__DIR__, 2));
+    }
+}
+
+if(!function_exists('view')){
+    function view($query): void
+    {
+        /* $loader = new \Twig\Loader\ArrayLoader([
+            'index' => 'Hello {{ name }}!',
+        ]);
+        $twig = new \Twig\Environment($loader);
+        
+        echo $twig->render('index', ['name' => 'Fabien']); */
+
+        $loader = new \Twig\Loader\FilesystemLoader(root_dir().'/views');
+        $twig = new \Twig\Environment($loader, [
+            'cache' => root_dir().'/storage/cache/views',
+        ]);
+        echo $twig->render('error.global', ['name' => 'Fabien']);
     }
 }
 
