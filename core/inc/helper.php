@@ -68,7 +68,7 @@ if(!function_exists('root_dir')){
 }
 
 if(!function_exists('view')){
-    function view($query): void
+    function view($view): void
     {
         /* $loader = new \Twig\Loader\ArrayLoader([
             'index' => 'Hello {{ name }}!',
@@ -78,10 +78,13 @@ if(!function_exists('view')){
         echo $twig->render('index', ['name' => 'Fabien']); */
 
         $loader = new \Twig\Loader\FilesystemLoader(root_dir().'/views');
+        dd($loader);
         $twig = new \Twig\Environment($loader, [
             'cache' => root_dir().'/storage/cache/views',
         ]);
-        echo $twig->render('error.global', ['name' => 'Fabien']);
+        $template = $twig->load($view);
+        echo $template->render();
+        //echo $twig->render($template, ['name' => 'Fabien']);
     }
 }
 
