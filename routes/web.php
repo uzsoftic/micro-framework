@@ -3,5 +3,5 @@
 use App\Services\Router as Route;
 
 // Routes
-Route::get('/', 'frontend/index');
-Route::any('/404', 'frontend/404');
+Route::get('/', 'public/index');
+Route::any('/404', 'public/404');
