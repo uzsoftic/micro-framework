@@ -6,6 +6,8 @@ yarn-error.log
 
 storage/*.key
 storage/logs/
+storage/cache/views/
+storage/cache/sessions/
 .env
 .idea/
 .github/

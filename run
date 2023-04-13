@@ -1,0 +1,61 @@
+#!/usr/bin/env php
+<?php
+define('START_TIME', microtime(true));
+require_once('core/cli.php');
+
+writeLn('');
+writeLn('');
+writeLn('----- Terminal start -----', ['bold', 'magentabg']);
+writeLn('');
+
+if (PHP_SAPI == "cli") {
+    parse_str($argv[1], $arg);
+    $option = $argv[1];
+    //writeLn($argv[1], ['green']);
+
+    if(!empty($option)){
+        if(strpos($option, ':')){
+            write('Command and Option: ');
+            writeLn($option, ['green']);
+            writeLn('');
+
+            $options = explode(':', $option);
+            $option = $options[0];
+            $suboption = $options[1];
+
+            switch($option){
+                case 'cache':
+                    
+                    // Cache command
+                    if($suboption == 'clear'){
+                        $cache_path = realpath(__DIR__.'/storage/cache/views');
+                        writeLn($cache_path);
+                        (new File)->deleteDir($cache_path);
+                        writeLn('Cache clear succesfully!');
+                    }
+
+                break;
+            }
+
+            //print_r($options);
+        }else{
+            write('Command: ');
+            writeLn($option, ['green']);
+            writeLn('');
+        }
+        
+        
+    }
+
+
+    // Access argument values using getopt()
+    //print_r($option);
+} else {
+    // Access argument values using $_GET etc. 
+}
+
+writeLn('');
+writeLn('----- Terminal end session -----', ['bold', 'magentabg']);
+writeLn('');
+writeLn('');
+?>
