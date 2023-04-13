@@ -4,6 +4,7 @@ session_start();
 require_once('inc/helper.php');
 require_once('inc/database.php');
 require_once('inc/logger.php');
+require_once('inc/template.php');
 
 try {
     $config = config('database');
@@ -14,6 +15,6 @@ try {
         $config['DB_NAME']
     );
 }catch (Exception $e){
-    throw new Exception('Error database connection');
+    throw new Exception('Error database connection. Please connect Database');
 }
 //dd($GLOBALS['db']);

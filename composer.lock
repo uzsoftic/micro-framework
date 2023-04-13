@@ -4,7 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#installing-dependencies",
         "This file is @generated automatically"
     ],
-    "content-hash": "1449d1939d5de7442288c1515dc95dd7",
+    "content-hash": "88ae29ea848cac49ff3d9f6cdc18ee4f",
     "packages": [
         {
             "name": "graham-campbell/result-type",
@@ -555,12 +555,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/symfony/var-dumper.git",
-                "reference": "c007934f992b5108a842b8b5e7d433bf1e6aec59"
+                "reference": "cb21bc93f2fe7c0b9859bce455635cfd4658c2f3"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/c007934f992b5108a842b8b5e7d433bf1e6aec59",
-                "reference": "c007934f992b5108a842b8b5e7d433bf1e6aec59",
+                "url": "https://api.github.com/repos/symfony/var-dumper/zipball/cb21bc93f2fe7c0b9859bce455635cfd4658c2f3",
+                "reference": "cb21bc93f2fe7c0b9859bce455635cfd4658c2f3",
                 "shasum": ""
             },
             "require": {
@@ -635,7 +635,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-03-30T09:40:52+00:00"
+            "time": "2023-04-05T09:41:04+00:00"
         },
         {
             "name": "twig/twig",
@@ -643,12 +643,12 @@
             "source": {
                 "type": "git",
                 "url": "https://github.com/twigphp/Twig.git",
-                "reference": "78c18ad58e48d3fff2f7812bb60b6176ee52689a"
+                "reference": "05bb9186ff6221470a65ea9531401f450cd2dff1"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/twigphp/Twig/zipball/78c18ad58e48d3fff2f7812bb60b6176ee52689a",
-                "reference": "78c18ad58e48d3fff2f7812bb60b6176ee52689a",
+                "url": "https://api.github.com/repos/twigphp/Twig/zipball/05bb9186ff6221470a65ea9531401f450cd2dff1",
+                "reference": "05bb9186ff6221470a65ea9531401f450cd2dff1",
                 "shasum": ""
             },
             "require": {
@@ -707,7 +707,7 @@
                     "type": "tidelift"
                 }
             ],
-            "time": "2023-02-15T09:14:05+00:00"
+            "time": "2023-04-11T17:38:30+00:00"
         },
         {
             "name": "vlucas/phpdotenv",
@@ -799,7 +799,8 @@
     "aliases": [],
     "minimum-stability": "dev",
     "stability-flags": {
-        "vlucas/phpdotenv": 20
+        "vlucas/phpdotenv": 20,
+        "monolog/monolog": 20
     },
     "prefer-stable": false,
     "prefer-lowest": false,

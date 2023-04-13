@@ -1,6 +1,7 @@
 <?php
 
 use App\Services\DB as Database;
+use App\Services\Router;
 
 if(!function_exists('env')){
     function env($param, $default = ""):string{
@@ -56,19 +57,30 @@ if(!function_exists('config')){
 if(!function_exists('db')){
     function db($query): array
     {
-        // Collect config from config folder
-        /*$config = config('database');
-
-        // Core Functions
-        //require_once __DIR__ . '/../../src/Database.php';
-        $db = new Database(
-            $config['DB_HOST'],
-            $config['DB_USER'],
-            $config['DB_PASS'],
-            $config['DB_NAME']
-        );*/
-
         return $GLOBALS['db']->query($query)->fetchAll();
     }
 }
 
+if(!function_exists('root_dir')){
+    function root_dir(){
+        return (string) realpath(dirname(__DIR__, 2));
+    }
+}
+
+if(!function_exists('view')){
+    function view($view, $variables = []): void
+    {
+        $loader = new \Twig\Loader\FilesystemLoader(root_dir().'/views');
+        $twig = new \Twig\Environment($loader, [
+            'cache' => root_dir().'/storage/cache/views',
+        ]);
+        $template = $twig->load($view);
+        echo $template->render($variables);
+    }
+}
+
+if(!function_exists('csrf')){
+    function csrf(){
+        Router::set_csrf();
+    }
+}

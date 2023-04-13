@@ -31,6 +31,9 @@ try {
     //(new Health())->check_echo_text();
     //(new Health())->check_database_connection();
 
+    //dd(root_dir());
+    //view(1);
+
     // Router Controller
     require_once __DIR__ . '/routes/web.php';
 
