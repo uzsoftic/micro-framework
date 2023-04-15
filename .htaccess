@@ -1,3 +1,6 @@
 RewriteEngine On
-RewriteCond %{REQUEST_URI}  !(\.png|\.jpg|\.webp|\.gif|\.jpeg|\.zip|\.css|\.svg|\.js|\.pdf)$
-RewriteRule (.*) index.php [QSA,L]
+RewriteCond %{REQUEST_FILENAME} !-f
+AddDefaultCharset UTF-8
+RewriteRule ^(.+)$ index.php?q=$1 [L,QSA]
+#RewriteCond %{REQUEST_URI}  !(\.png|\.jpg|\.webp|\.gif|\.jpeg|\.zip|\.css|\.svg|\.js|\.pdf)$
+#RewriteRule (.*) index.php [QSA,L]

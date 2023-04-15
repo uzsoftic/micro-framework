@@ -42,7 +42,8 @@ if(!function_exists('dd')){
 
 if(!function_exists('asset')){
     function asset($url){
-        return '/public/'.$url;
+        return env('APP_URL').'/public/'.$url;
+        //return '/public/'.$url;
     }
 }
 
