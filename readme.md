@@ -21,8 +21,20 @@ DB_USER="root"
 DB_PASS=""
 ```
 
+### Run local server
+```shell
+php run serve
+```
+
+### Clear all caches
+```shell
+php run optimize
+```
+
 ### Used Library
 - vlucas/phpdotenv
+- twig/twig
+- symfony/var-dumper
 
 ### Used Documents
 - https://phprouter.com/

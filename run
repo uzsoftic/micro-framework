@@ -1,6 +1,30 @@
 #!/usr/bin/env php
 <?php
+
+use Dotenv\Dotenv;
+
 define('START_TIME', microtime(true));
+
+// Enable handler
+require_once(__DIR__.'/core/handler.php');
+
+// Load Composer Packages
+if(!is_file('/vendor/autoload.php')){
+    require_once(__DIR__ . '/vendor/autoload.php');
+}else{
+    throw new Exception('composer not working');
+}
+
+// Load ENV values
+if(!is_file('/.env')){
+    Dotenv::createImmutable(__DIR__)->load();
+}else{
+    throw new Exception('.env file not found');
+}
+
+// Require Framework Core
+require_once(__DIR__.'/core/core.php');
+
 require_once('core/cli.php');
 
 writeLn('');
@@ -42,6 +66,17 @@ if (PHP_SAPI == "cli") {
             write('Command: ');
             writeLn($option, ['green']);
             writeLn('');
+
+            switch ($option){
+                case 'serve':
+                    $command = "php -S ".env('APP_SERVE', "127.0.0.1").":".env('APP_SERVE_PORT', 8000)." index.php";
+                    shell_exec($command);
+                break;
+                case 'optimize':
+                    shell_exec('php run cache:clear');
+                    writeLn('Cache clear');
+                break;
+            }
         }
         
         

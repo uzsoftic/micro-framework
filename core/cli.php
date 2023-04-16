@@ -23,7 +23,3 @@ function write($text, $format = []){
 function writeLn($text, $format = []){
     return formatPrintLn($format, $text);
 }
-
-
-
-?>

@@ -7,7 +7,7 @@ require_once('inc/logger.php');
 require_once('inc/template.php');
 
 try {
-    $config = config('database');
+    $config = load_config('database');
     $GLOBALS['db'] = new database(
         $config['DB_HOST'],
         $config['DB_USER'],
