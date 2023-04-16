@@ -40,6 +40,10 @@ class Router{
     }
 
     // ROUTE function
+
+    /**
+     * @throws \Exception
+     */
     private static function route($route, $controller, $path_to_include){
 
         $request_url = filter_var($_SERVER['REQUEST_URI'], FILTER_SANITIZE_URL) ?? '/';
@@ -55,11 +59,20 @@ class Router{
             exit();
         }
 
-        if($request_url == $route){
-            if(is_array($controller)){
-                (new $controller[0])->{$controller[1]}();
-                exit();
+        try {
+            if($request_url == $route){
+                if(is_array($controller)){
+                    if(method_exists($controller[0], $controller[1])){
+                        (new $controller[0])->{$controller[1]}();
+                        exit();
+                    }else{
+                        throw new \Exception('Method undefined. Check route Class or Function.');
+                    }
+
+                }
             }
+        }catch (\Exception $exception){
+            throw new \Exception($exception->getMessage());
         }
 
     }
