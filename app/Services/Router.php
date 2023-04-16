@@ -73,12 +73,16 @@ class Router{
             //
         }
 
-        // exists file
+        // exists file // woff woff2 ttf
         if (file_exists($file = realpath(root_dir()).$request_url)){
             $file_info = pathinfo($file);
-            if ($file_info['extension'] == 'css'){
-                header("Content-type: text/css; charset: UTF-8");
+            switch ($file_info['extension']){
+                case 'css': header("Content-type: text/css; charset: UTF-8"); break;
+                case 'ttf': header("Content-type: font/ttf; charset: UTF-8"); break;
+                case 'woff': header("Content-type: font/woff; charset: UTF-8"); break;
+                case 'woff2': header("Content-type: font/woff2; charset: UTF-8"); break;
             }
+
             echo readfile($file);
             exit();
         }
