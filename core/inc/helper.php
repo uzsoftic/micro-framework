@@ -69,12 +69,18 @@ if(!function_exists('root_dir')){
 }
 
 if(!function_exists('view')){
-    function view($view, $variables = []): void
+    function view($view, $variables = [])
     {
+        $environment = 'dev';
         $loader = new \Twig\Loader\FilesystemLoader(root_dir().'/views');
         $twig = new \Twig\Environment($loader, [
             'cache' => root_dir().'/storage/cache/views',
         ]);
+
+        $twig->addFunction(new \Twig\TwigFunction('asset', function($url) {
+            return asset($url);
+        }));
+
         $template = $twig->load($view);
         echo $template->render($variables);
     }
