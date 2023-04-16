@@ -1,6 +1,6 @@
 <?php
 
-use App\Services\DB as Database;
+use App\Services\Database as Database;
 use App\Services\Router;
 
 if(!function_exists('env')){

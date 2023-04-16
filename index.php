@@ -24,9 +24,9 @@ try {
     // Require Framework Core
     require_once(__DIR__.'/core/core.php');
 
-    $data = config('app.default.language');
-    dd($data);
-    exit();
+    //$data = config('app.default.language');
+    //dd($data);
+    //exit();
 
     // Require Kernel Auto Connector
     //require_once(__DIR__.'/app/Kernel.php');
